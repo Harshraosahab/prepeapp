@@ -1,0 +1,227 @@
+/* === DASHBOARD LAYOUT === */
+.dashboard-layout {
+  display: flex;
+  min-height: 100vh;
+  background-color: #0e0e0e;
+  overflow-x: hidden;
+}
+
+/* === SIDEBAR === */
+.sidebar {
+  width: 240px; /* match sidebar width */
+  background-color: #141414;
+  color: white;
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  padding: 1.5rem 1rem;
+  z-index: 10;
+  border-right: 1px solid #2f2f2f;
+}
+
+/* === MAIN CONTENT (Right of Sidebar) === */
+.main-content {
+  flex: 1;
+  margin-left: 240px; /* ✅ prevents overlap */
+  padding: 2rem;
+  background-color: #0e0e0e;
+  min-height: 100vh;
+  transition: margin-left 0.3s ease;
+}
+
+/* === ADMIN DASHBOARD === */
+.admin-dashboard {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  background-color: #0e0e0e;
+  color: #fff;
+  font-family: "Poppins", sans-serif;
+}
+
+/* === TABS === */
+.admin-tabs {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.admin-tabs button {
+  padding: 0.6rem 1.2rem;
+  border: 1px solid #6ea8fe;
+  background-color: transparent;
+  color: #6ea8fe;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  transition: all 0.3s ease;
+}
+
+.admin-tabs button.active,
+.admin-tabs button:hover {
+  background-color: #6ea8fe;
+  color: #fff;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 10px rgba(110, 168, 254, 0.4);
+}
+
+/* === CONTENT SECTION === */
+.admin-content {
+  margin-top: 1rem;
+  background-color: #1b1b1b;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  animation: fadeIn 0.5s ease forwards;
+}
+
+.manage-section h3 {
+  margin-bottom: 1rem;
+  color: #6ea8fe;
+  font-size: 1.3rem;
+  border-bottom: 1px solid #2f2f2f;
+  padding-bottom: 0.5rem;
+}
+
+/* === TABLE === */
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #222;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+.admin-table th,
+.admin-table td {
+  padding: 1rem 1.2rem;
+  text-align: left;
+  color: #ddd;
+}
+
+.admin-table th {
+  background-color: #2d2d2d;
+  color: #b0b0b0;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.admin-table tr:nth-child(even) {
+  background-color: #1a1a1a;
+}
+
+.admin-table tr:hover {
+  background-color: #2b2b2b;
+  transition: background 0.3s;
+}
+
+/* === BUTTONS === */
+.btn-edit,
+.btn-delete {
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 0.85rem;
+  transition: all 0.3s ease;
+}
+
+.btn-edit {
+  background-color: #ffc107;
+  color: #222;
+}
+
+.btn-edit:hover {
+  background-color: #e0a800;
+  transform: scale(1.05);
+}
+
+.btn-delete {
+  background-color: #dc3545;
+  color: #fff;
+}
+
+.btn-delete:hover {
+  background-color: #b52a37;
+  transform: scale(1.05);
+}
+
+/* === ANIMATIONS === */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease forwards;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 992px) {
+  .main-content {
+    margin-left: 200px;
+    padding: 1.5rem;
+  }
+
+  .admin-tabs {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    position: fixed;
+    width: 200px;
+    left: -200px;
+    transition: left 0.3s ease;
+  }
+
+  .sidebar.active {
+    left: 0;
+  }
+
+  .main-content {
+    margin-left: 0; /* ✅ Sidebar hidden on mobile */
+    padding: 1rem;
+  }
+
+  .admin-tabs {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .admin-content {
+    padding: 1.2rem;
+  }
+
+  .admin-table th,
+  .admin-table td {
+    padding: 0.7rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .admin-table {
+    font-size: 0.85rem;
+  }
+
+  .btn-edit,
+  .btn-delete {
+    padding: 0.3rem 0.6rem;
+    font-size: 0.8rem;
+  }
+}

@@ -1,0 +1,63 @@
+.leaderboard-container {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 1rem;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  text-align: center;
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+.leaderboard-container table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+.leaderboard-container th,
+.leaderboard-container td {
+  padding: 0.75rem;
+  border-bottom: 1px solid #ddd;
+  transition: background-color 0.2s ease;
+}
+
+.leaderboard-container th {
+  background-color: #f8f9fa;
+}
+
+.leaderboard-container tr:hover {
+  background-color: #f1f1f1;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .leaderboard-container table, 
+  .leaderboard-container th, 
+  .leaderboard-container td {
+    display: block;
+    width: 100%;
+    text-align: left;
+  }
+  .leaderboard-container th {
+    background-color: transparent;
+    border-bottom: none;
+  }
+  .leaderboard-container td {
+    padding-left: 50%;
+    position: relative;
+  }
+  .leaderboard-container td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 0;
+    width: 50%;
+    font-weight: bold;
+  }
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}

@@ -1,0 +1,10 @@
+import express from "express";
+import { getFeedbacks, createFeedback } from "../controllers/feedbackController.js";
+import { protect } from "../middleware/authMiddleware.js";
+
+const router = express.Router();
+
+router.get("/", protect, getFeedbacks); // Admin can fetch all feedback
+router.post("/", protect, createFeedback);
+
+export default router;

@@ -1,0 +1,223 @@
+/* ==========================
+   Global / Root - Modern Dark Theme
+   ========================== */
+.app {
+  min-height: 100vh;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+.content {
+  min-height: calc(100vh - 200px);
+  padding: var(--spacing-xl) 0;
+}
+
+/* ==========================
+   Hero Section
+   ========================== */
+.hero {
+  padding: 4rem 2rem;
+  text-align: center;
+  background: var(--bg-secondary);
+  border-radius: var(--radius-xl);
+  margin: var(--spacing-xl) auto;
+  max-width: 1200px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 800;
+}
+
+.hero p {
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+  color: var(--text-secondary);
+}
+
+.btn-login {
+  padding: 1rem 2.5rem;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: var(--radius-md);
+  background: var(--gradient-primary);
+  color: #fff;
+  cursor: pointer;
+  font-weight: 600;
+  transition: var(--transition);
+}
+
+.btn-login:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(139, 92, 246, 0.4);
+}
+
+/* ==========================
+   Quiz Section
+   ========================== */
+.quiz-section {
+  margin: var(--spacing-2xl) auto;
+  text-align: center;
+  max-width: 1200px;
+  padding: 0 var(--spacing-lg);
+}
+
+.quiz-section h2 {
+  font-size: 2rem;
+  margin-bottom: var(--spacing-xl);
+  color: var(--text-primary);
+  font-weight: 700;
+}
+
+.quiz-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--spacing-lg);
+}
+
+.quiz-container .card {
+  flex: 1 1 280px;
+  max-width: 320px;
+  padding: var(--spacing-xl);
+  border-radius: var(--radius-lg);
+  background: var(--bg-card);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: var(--shadow-md);
+  transition: var(--transition);
+  animation: fade-in 0.5s ease forwards;
+}
+
+.quiz-container .card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(139, 92, 246, 0.3);
+  box-shadow: var(--shadow-lg);
+}
+
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ==========================
+   Resume Section
+   ========================== */
+.resume-section {
+  padding: var(--spacing-2xl) 0;
+  text-align: center;
+  background: var(--bg-secondary);
+  border-radius: var(--radius-xl);
+  margin: var(--spacing-2xl) auto;
+  max-width: 1200px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.resume-section h2 {
+  font-size: 2rem;
+  margin-bottom: var(--spacing-xl);
+  color: var(--text-primary);
+  font-weight: 700;
+}
+
+/* ==========================
+   Admin Section
+   ========================== */
+.admin-section {
+  padding: var(--spacing-xl) 0;
+  min-height: 100vh;
+  background: var(--bg-primary);
+}
+
+.admin-container {
+  display: flex;
+  gap: var(--spacing-xl);
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-xl);
+}
+
+.admin-content {
+  flex: 1;
+  background: var(--bg-card);
+  padding: var(--spacing-xl);
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: var(--shadow-md);
+}
+
+/* ==========================
+   Footer
+   ========================== */
+footer {
+  padding: var(--spacing-xl);
+  background: var(--bg-secondary);
+  text-align: center;
+  margin-top: var(--spacing-2xl);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  color: var(--text-secondary);
+}
+
+/* ==========================
+   Notification / Loader (Optional)
+   ========================== */
+.notification {
+  position: fixed;
+  top: 6rem;
+  right: 2rem;
+  background-color: #646cff;
+  color: #fff;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  animation: slide-in 0.3s ease forwards;
+}
+
+@keyframes slide-in {
+  from { opacity: 0; transform: translateX(50px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+/* ==========================
+   Responsive Adjustments
+   ========================== */
+@media (max-width: 1024px) {
+  .quiz-container .card {
+    flex: 1 1 45%;
+    max-width: none;
+  }
+
+  .admin-container {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 768px) {
+  #root {
+    padding: 0 1rem;
+  }
+
+  .hero h1 {
+    font-size: 2.25rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  .quiz-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .quiz-container .card {
+    width: 100%;
+    max-width: 400px;
+  }
+}
